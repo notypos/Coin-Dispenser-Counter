@@ -1,11 +1,11 @@
 /*
 Authorship: Ike Machover
 Date: 5/25/2023
-Assignment 1: Writing 2 functions/programs and a menu. We made a coin dispenser that dispenses the least amount of coins of a dollar amount and it also takes coins and outputs a dollar amount.
+Assignment 1: Writing 2 functions/programs and a menu. Coin machine that dispenses the least amount of coins of a dollar amount or it also takes coins and outputs a dollar amount.
 */
 #include <iostream>
 #include <cstdlib> //exit(1) error
-#include <cctype>
+#include <cctype>\
 
 const int QUARTER = 25, DIME = 10, NICKEL = 5, PENNY = 1; //constants for program
 
