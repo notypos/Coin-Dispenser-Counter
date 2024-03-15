@@ -1,0 +1,124 @@
+/*
+Authorship: Ike Machover
+Date: 5/25/2023
+Assignment 1: Writing 2 functions/programs focusing on using cout.setf(ios::fixed), cout.setf(ios::showpoint) and cout.precision(). We made a coin dispenser that dispenses the least amount of coins and it also takes coins and outputs a dollar amount which is formatted.
+*/
+#include <iostream>
+#include <cstdlib> //exit(1) error
+const int quarter = 25, dime = 10, nickel = 5, penny = 1; //constants for program
+
+using namespace std;
+
+//function declarations
+void program1();
+void program2();
+//The comments in program 1 are to check my work so I left it there so you can see how I came up with the algorithm
+int main()
+{
+    cout << "***********" << endl;
+    cout << "*Program 1*" << endl;
+    cout << "***********" << endl;
+    cout << endl;
+    program1(); //function call
+    cout << endl;
+    cout << endl;
+    cout << "     *     " << endl; // cool art to make it more fun (sry if this isn't allowed plz don't take points off :D)
+    cout << "     *     " << endl;
+    cout << "     *     " << endl;
+    cout << "     *     " << endl;
+    cout << "   *****    " << endl;
+    cout << "    ***     " << endl;
+    cout << "     *     " << endl;
+    cout << endl;
+    cout << endl;
+    cout << "***********" << endl;
+    cout << "*Program 2*" << endl;
+    cout << "***********" << endl;
+    cout << endl;
+    program2(); //function call
+
+    return 0;
+}
+
+void program1()
+{ 
+    double money;
+    //const int quarter = 25, dime = 10, nickel = 5, penny = 1;
+    int cents, remainder;
+    int amount_of_quarters, amount_of_dimes, amount_of_nickels, amount_of_pennies;
+
+    //do while so it's less than $100 and an error message before exiting the program so you know why it exited.
+    do
+    {
+       cout << "Enter a dollar amount less than $100 " << endl; //user input
+       cin >> money; //assign variable
+       cout.setf(ios::fixed); //formatting
+       cout.setf(ios::showpoint);
+       cout.precision(2);
+       if (money < 0) //amount needs to not be negative
+       {
+          cout << "!!!ERROR, NEGATIVE NUMBER, CANNOT COMPUTE!!!";
+          exit(1);
+       }
+    } while (money >= 100);
+
+    //cout << "You entered $" << money << "\n";
+    cents = money * 100;
+    //cout << "You have " << cents << " cents" << endl;
+    amount_of_quarters = cents / quarter;
+    cents = cents % quarter;
+    /* cout << "This is " << amount_of_quarters << " quarters, which equals -> cents = " << quarter * amount_of_quarters << endl;
+       cout << "There is " << cents << " cents left over" << endl;*/
+    amount_of_dimes = cents / dime;
+    cents = cents % dime;
+    /*cout << "This is " << amount_of_dimes << " dimes, which equals -> cents =" << dime * amount_of_dimes << endl;
+    cout << "There is " << cents << " cents left over" << endl;*/
+    amount_of_nickels = cents / nickel;
+    cents = cents % nickel;
+    /*cout << "This is " << amount_of_nickels << " nickels, which equals -> cents =" << nickel * amount_of_nickels << endl;
+    cout << "There is " << cents << " cents left over" << endl;*/
+    amount_of_pennies = cents / penny;
+    cents = cents % penny;
+    /*cout << "This is " << amount_of_pennies << " pennies, which equals -> cents =" << penny * amount_of_pennies << endl;
+    cout << "There is " << cents << " cents left over" << endl; */
+    cout << endl;
+    cout << "Value: $" << money << endl; //results and answer
+    cout << "Quarter: " << amount_of_quarters << endl;
+    cout << "Dime: " << amount_of_dimes << endl;
+    cout << "Nickel: " << amount_of_nickels << endl;
+    cout << "Penny: " << amount_of_pennies << endl;
+}
+void program2()
+{ // declared my variables
+    int amount_of_quarters, amount_of_dimes, amount_of_nickels, amount_of_pennies;
+    double cents;
+
+   
+        cout << "Enter number of Quarters, Dimes, Nickels and Pennies. Press space or enter after each value. Total value cannot exceed $100." << endl; //ask for user input
+        cin >> amount_of_quarters >> amount_of_dimes >> amount_of_nickels >> amount_of_pennies; //did some assigning to variables
+        //cout << "Q = " << amount_of_quarters << " D = " << amount_of_dimes << " N = " << amount_of_nickels << " P = " << amount_of_pennies;
+        cents = (amount_of_quarters * quarter) + (amount_of_dimes * dime) + (amount_of_nickels * nickel) + (amount_of_pennies * penny); //did some maths
+     
+ 
+    //cout << "\nThat is " << cents << " cents" << endl;
+    cout.setf(ios::fixed); // i don't know 100% how these work yet but i'm still figuring it out, idk if they need to be in a block together all the time and where they need to be placed?
+    cout.setf(ios::showpoint);
+    cout.precision(2);
+    cout << endl;
+    cout << "...Processing..." << endl;
+    cout << ".                             (\\_/)" << endl; //more fun art and computer funny things
+    cout << ".                             ( . .)" << endl;
+    cout << " .                          (*)( )( )  " << endl;
+    cout << "  .                        " << endl;
+    cout << " ." << "amount of quarters .. " << amount_of_quarters << endl;
+    cout << "." << "amount of dimes .. " << amount_of_dimes << endl;
+    cout << " ." << "amound of nickels .. " << amount_of_nickels << endl;
+    cout << "  ." << "amount of pennies .. " << amount_of_pennies << endl;
+    cout << "\nThese coins are worth $" << cents / 100 << "." << endl; //result
+    cout << endl;
+    cout << endl;
+    cout << "***********" << endl;
+    cout << "**Goodbye**" << endl;  //fun art
+    cout << "***********" << endl;
+    cout << endl;
+}

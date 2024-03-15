@@ -1,0 +1,116 @@
+/*
+Authorship: Ike Machover
+Date: 5/25/2023
+Assignment 1: Writing 2 functions/programs focusing on using cout.setf(ios::fixed), cout.setf(ios::showpoint) and cout.precision(). We made a coin dispenser that dispenses the least amount of coins and it also takes coins and outputs a dollar amount which is formatted.
+*/
+#include <iostream>
+#include <cstdlib> //exit(1) error
+const int quarter = 25, dime = 10, nickel = 5, penny = 1; //constants for program
+
+using namespace std;
+
+//function declarations
+void program1();
+void program2();
+//The comments in program 1 are to check my work so I left it there so you can see how I came up with the algorithm
+int main()
+{
+    cout << "***********" << endl;
+    cout << "*Program 1*" << endl;
+    cout << "***********" << endl;
+    cout << endl;
+    program1(); //function call
+    cout << endl;
+    cout << endl;
+    cout << "     *     " << endl; // cool art to make it more fun (sry if this isn't allowed plz don't take points off :D)
+    cout << "     *     " << endl;
+    cout << "     *     " << endl;
+    cout << "     *     " << endl;
+    cout << "   *****    " << endl;
+    cout << "    ***     " << endl;
+    cout << "     *     " << endl;
+    cout << endl;
+    cout << endl;
+    cout << "***********" << endl;
+    cout << "*Program 2*" << endl;
+    cout << "***********" << endl;
+    cout << endl;
+    program2(); //function call
+
+    return 0;
+}
+
+void program1()
+{ 
+    //initialized variables
+    double money;
+    int cents, remainder;
+    int amount_of_quarters, amount_of_dimes, amount_of_nickels, amount_of_pennies;
+
+    //do while loop, to make sure amount is less than $100.
+    do
+    {
+       cout << "Enter a dollar amount less than $100 " << endl; //user input
+       cin >> money; //assign variable
+       cout.setf(ios::fixed); //formatting
+       cout.setf(ios::showpoint);
+       cout.precision(2);
+       if (money < 0) //amount needs to not be negative
+       {
+          exit(1); //exit program if negative number
+       }
+    } while (money >= 100); //end loop
+
+    cents = money * 100; //turn dollar amt into cents
+    amount_of_quarters = cents / quarter; //gets quarters
+    cents = cents % quarter; //updates cents
+    amount_of_dimes = cents / dime; //gets dimes
+    cents = cents % dime; //updates cents
+    amount_of_nickels = cents / nickel; //gets nickels
+    cents = cents % nickel; //updates cents
+    amount_of_pennies = cents / penny; //gets pennies
+    cents = cents % penny; //updates cents
+    cout << endl;
+    cout << "Value: $" << money << endl; //results \ outputs \ answers
+    cout << "Quarter: " << amount_of_quarters << endl;
+    cout << "Dime: " << amount_of_dimes << endl;
+    cout << "Nickel: " << amount_of_nickels << endl;
+    cout << "Penny: " << amount_of_pennies << endl;
+}
+void program2()
+{ // declare variables
+    int amount_of_quarters, amount_of_dimes, amount_of_nickels, amount_of_pennies;
+    double cents;
+
+    cout << "Enter number of Quarters, Dimes, Nickels and Pennies. Press space or enter after each value. Total value cannot exceed $100." << endl; //ask for user input
+    cin >> amount_of_quarters >> amount_of_dimes >> amount_of_nickels >> amount_of_pennies; //get coin amounts and assign them to variables
+    cents = (amount_of_quarters * quarter) + (amount_of_dimes * dime) + (amount_of_nickels * nickel) + (amount_of_pennies * penny); //did some maths
+    cout.setf(ios::fixed);//formatting output
+    cout.setf(ios::showpoint);
+    cout.precision(2);
+    cout << endl;
+    cout << ".Processing." << endl;
+    cout << "............             /)_/)" << endl; //some fun art and entertainment for your viewing pleasure
+    cout << "...........             ( . .)" << endl;
+    cout << "..........            (*)(')(')  " << endl;
+    cout << ".........            (\\_/)" << endl;
+    cout << "........            ( . .)" << endl;
+    cout << ".......            (*)(')(') " << endl;
+    cout << "......            (\\_/) " << endl;
+    cout << ".....            ( . .) " << endl;
+    cout << "....            (*)(')(')" << endl;
+    cout << "...           /)_/) " << endl;
+    cout << "..           ( . .)" << endl;
+    cout << ".          (*)(')(')" << endl;
+    cout << "amount of quarters .. " << amount_of_quarters << endl; //saying how many coins are there
+    cout << "amount of dimes ..... " << amount_of_dimes << endl;
+    cout << "amound of nickels ... " << amount_of_nickels << endl;
+    cout << "amount of pennies ... " << amount_of_pennies << endl;
+    cout << "\nThese coins are worth $" << cents / 100 << "." << endl; //result
+    cout << endl;
+    cout << endl;
+    cout << "***********" << endl;
+    cout << "**Goodbye**" << endl;
+    cout << "***********" << endl;
+    cout << endl;
+}
