@@ -5,7 +5,8 @@ Assignment 1: Writing 2 functions/programs and a menu. Coin machine that dispens
 */
 #include <iostream>
 #include <cstdlib> //exit(1) error
-#include <cctype>\
+#include <cctype>
+#include <cmath>
 
 const int QUARTER = 25, DIME = 10, NICKEL = 5, PENNY = 1; //constants for program
 
